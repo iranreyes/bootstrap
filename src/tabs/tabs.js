@@ -36,7 +36,14 @@ angular.module('ui.bootstrap.tabs', [])
   };
 
   ctrl.removeTab = function removeTab(tab) {
-    var index = tabs.indexOf(tab);
+	for (var index = 0, len = tabs.length; i < len; i++) {
+		if(tabs[index] === tab)
+		{
+			--index;
+			break;
+		}
+	};
+
     //Select a new tab if the tab to be removed is selected and not destroyed
     if (tab.active && tabs.length > 1 && !destroyed) {
       //If this is the last tab, select the previous tab. else, the next tab.
